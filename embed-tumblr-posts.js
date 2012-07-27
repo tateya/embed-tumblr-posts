@@ -2,7 +2,7 @@
  * Embed Tumblr Posts
  *
  * @author Tateya GUMI
- * @version 0.1.0
+ * @version 0.1.1
  * @license MIT License
  */
 (function(global, undefined) {
@@ -26,7 +26,7 @@
      */
     var EmbedTumblrPosts = function EmbedTumblrPosts(targetElement, settings) {
       settings = settings || {};
-      this.settings = util.objectMerge(EmbedTumblrPosts, settings);
+      this.settings = util.objectMerge(EmbedTumblrPosts.DEFAULT_SETTINGS, settings);
       this.targetElement = targetElement;
       if (!(targetElement instanceof Element)) {
         throw new TypeError('This class is required argument targetElement.');
