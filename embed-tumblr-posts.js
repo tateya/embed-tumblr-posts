@@ -2,7 +2,7 @@
  * Embed Tumblr Posts
  *
  * @author Tateya GUMI
- * @version 0.1.1
+ * @version 0.1.2
  * @license MIT License
  */
 (function(global, undefined) {
@@ -83,6 +83,7 @@
   };
 
   /**
+   * @private
    * @since 0.1.0
    */
   preparation.addListener = function addListener() {
@@ -91,8 +92,11 @@
   };
 
   /**
+   * @private
+   * @param {HTMLElement} targetElement
+   * @param {Object} settings
+   * @return {Function} listener
    * @since 0.1.0
-   * @return {function(Event)} listener
    */
   preparation.createListener = function createListener(targetElement, settings) {
     var etp = new EmbedTumblrPosts(targetElement, settings);
@@ -102,6 +106,7 @@
   };
 
   /**
+   * @private
    * @param {Document} document
    * @return {HTMLScriptElement} currentScriptElement
    * @since 0.1.0
@@ -113,6 +118,7 @@
   };
 
   /**
+   * @private
    * @param {HTMLScriptElement} scriptElement
    * @return {Object} query
    * @since 0.1.0
@@ -125,6 +131,7 @@
   };
 
   /**
+   * @private
    * @param {HTMLScriptElement} scriptElement
    * @return {Object} settings
    * @since 0.1.0
@@ -221,6 +228,7 @@
   };
 
   /**
+   * @private
    * @param {Document} document
    * @since 0.1.0
    */
