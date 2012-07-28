@@ -2,7 +2,7 @@
  * Embed Tumblr Posts
  *
  * @author Tateya GUMI
- * @version 0.1.2
+ * @version 0.1.3
  * @license MIT License
  */
 (function(global, undefined) {
@@ -259,7 +259,7 @@
         return this.getElementsByTagName(tagName);
       };
     }
-    if (typeof(document.createElementNS(XHTML_NAMESPACE, 'div').textContent) !== 'string') {
+    if (typeof(document.createElementNS(XHTML_NAMESPACE, 'div').textContent) !== 'string' && typeof(Object.defineProperty) === 'function') {
       Object.defineProperty(Element.prototype, 'textContent', {
         get: function getter() {
           return this.extractHtmlTags(this.innerHTML);
@@ -272,11 +272,11 @@
       });
     }
   };
-  if (/MSIE/.test(window.navigator.userAgent)) {
-    supportInternetExplorer(window.document);
-  }
 
   if (window === global) {
+    if (typeof(window.navigator) !== 'undefined' && /MSIE/.test(window.navigator.userAgent)) {
+      supportInternetExplorer(window.document);
+    }
     preparation(window.document);
   }
 })(this, void 0);
